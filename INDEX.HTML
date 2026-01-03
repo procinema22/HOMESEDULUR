@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEDULUR FOTO COPY</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 45px; /* ubah sesuai kebutuhan */
+  width: auto;
+}
+
+
+    body {
+      background-color: #faf7f3;
+      color: #333;
+    }
+
+    /* --- NAVBAR --- */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 50px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #b70d0d;
+      font-size: 1.2em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #b70d0d;
+    }
+
+    .search-box {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      overflow: hidden;
+      width: 260px;
+    }
+
+    .search-box input {
+      border: none;
+      padding: 8px 15px;
+      width: 100%;
+      outline: none;
+    }
+
+    .search-box button {
+      background: #b70d0d;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+
+    /* --- ICON MENU --- */
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 25px 0;
+      background: white;
+    }
+
+    .cat-item {
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .cat-item img {
+      width: 55px;
+      height: 55px;
+      margin-bottom: 8px;
+      filter: invert(25%) sepia(85%) saturate(3000%) hue-rotate(340deg);
+    }
+
+    /* --- HERO --- */
+    .hero {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none; /* hilangkan background lama */
+  padding: 0;
+}
+
+.hero-banner {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+ 
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      color: #fff;
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-text p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .hero-text ul {
+      list-style: none;
+      font-size: 1em;
+      line-height: 1.8em;
+    }
+
+    /* --- PRODUCT GRID --- */
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      padding: 0 50px 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 10px 15px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* --- CHAT BUTTON --- */
+    .chat-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #b70d0d;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .chat-btn:hover {
+      background: #d61616;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero {
+        padding: 80px 20px;
+      }
+      .hero-text h1 {
+        font-size: 2em;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+        <img src="img/LOGGO/SDLR.png" alt="ISA GRAFIKA Logo">
+      </div>
+      
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="SOFTWARE/cetakfoto.html">Cetak Foto</a></li>
+        <li><a href="invoice/index.html">Invoice</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <input type="text" placeholder="Cari Produk Disini">
+      <button>🔍</button>
+    </div>
+  </header>
+
+  <!-- CATEGORY ICONS -->
+  <section class="categories">
+    <div class="cat-item"><img src="https://img.icons8.com/ios-filled/100/000000/print.png"/><p>Print Digital</p></div>
+    <div class="cat-item"><img src="https://img.icons8.com/ios-filled/100/000000/calendar.png"/><p>Kalender</p></div>
+    <div class="cat-item"><img src="https://img.icons8.com/ios-filled/100/000000/invite.png"/><p>Undangan</p></div>
+  </section>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="img/BANER/banner.png" alt="Banner" class="hero-banner">
+  </section>
+  
+
+  <!-- PRODUCTS -->
+  <h2 class="section-title">Print Digital</h2>
+  <section class="products">
+    <a href="harga/stiker.html" class="product-card">
+      <img src="IMG/LAYANAN/STIKER.jpg" alt="">
+      <div class="product-info">Stiker Label</div>
+    </a>
+    
+    <div class="product-card">
+      <img src="IMG/LAYANAN/HITAM PUTIH.png" alt="">
+      <div class="product-info">Print Hitam Putih</div>
+    </div>
+    <div class="product-card">
+      <img src="IMG/LAYANAN/warna.png" alt="">
+      <div class="product-info">Print Warna</div>
+    </div>
+    <div class="product-card">
+      <img src="IMG/LAYANAN/softcover.jpg" alt="">
+      <div class="product-info">Softcover</div>
+    </div>
+    <div class="product-card">
+        <img src="IMG/LAYANAN/hardcover.jpg" alt="">
+        <div class="product-info">Hard Cover</div>
+      </div>
+  </section>
+  <h2 class="section-title">LAYANAN</h2>
+  <section class="products">
+    <div class="product-card">
+      <img src="IMG/LAYANAN/laminating.jpg" alt="">
+      <div class="product-info">laminating</div>
+    </div>
+    <div class="product-card">
+      <img src="IMG/LAYANAN/ATK.jpg" alt="">
+      <div class="product-info">ATK</div>
+    </div>
+    <div class="product-card">
+      <img src="IMG/LAYANAN/daftar isi.png" alt="">
+      <div class="product-info">Edit Daftar Isi</div>
+    </div>
+    <div class="product-card">
+      <img src="IMG/LAYANAN/poster.jfif" alt="">
+      <div class="product-info">Poster</div>
+    </div>
+   
+  </section>
+
+  <!-- CHAT BUTTON -->
+  <button class="chat-btn" onclick="alert('Hubungi kami di WhatsApp! 📞')">💬</button>
+
+</body>
+</html>
